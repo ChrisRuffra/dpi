@@ -110,42 +110,105 @@ select {
 	border: 0;
 }
 
-output {
-	display: box; display: flexbox; display: flex;
-	box-align: center; flex-align: center; justify-content: center;
-	box-pack: center; flex-pack: center; align-items: center;
-	min-width: 10em;
-	max-width: 100%;
-	width: 15em;
-	min-height: 8em;
-	max-height: 20em;
-	border: 15px solid transparent;
-	margin: 1em auto 0;
-	background: #333;
-	background: linear-gradient(to bottom right, gray, black), url(img/noise.png), linear-gradient(to bottom right, #eee, #ccc);
-	background-origin: padding-box, border-box, border-box;
-	background-clip: padding-box, border-box, border-box;
-	box-shadow: 1px 1px 3px black inset, 0 -1px white, 0 -1px 0 1px #bbb, 0 2px 0 1px #aaa, 0 2px 10px 1px rgba(0,0,0,.2);
-	color: white;
-	text-shadow: 0 -1px 2px black;
-	text-align: center;
-	transition-duration: .3s;
-	transition-property: width, height, line-height;
+.icon-device {
+	position: relative;
+	display: inline-block;
+	border: 3px solid #555;
+	margin-top: 3em;
+	-webkit-transition: .3s all;
+	-moz-transition: .3s all;
+	transition: .3s all;
 }
 
-	output strong {
-		display: block;
-		font-size: 400%;
-		letter-spacing: -1px;
+	.icon-device::before,
+	.icon-device::after {
+		position: absolute;
+		content: '';
 	}
-	
-	output div {
-		display: inline-block;
-		vertical-align: middle;
-		line-height: 1.1;
-		margin-top: -1em;
+
+	.icon-device::before {
+		top: 4px;
+		width: 15px;
+		height: 3px;
+		margin-left: -7.5px;
+		background: #555;
+		border-radius: 15px;
 	}
-	
+
+	.icon-device::after {
+		bottom: 4px;
+		width: 10px;
+		height: 10px;
+		margin-left: -5px;
+		background: #555;
+		border-radius: 10px;
+	}
+
+	.icon-device .dpi {
+		position: absolute;
+		width: 100%;
+		margin-left: -50%;
+		height: 37px;
+		color: #555;
+		box-sizing: border-box;
+		padding: 5px;
+		font-size: 1.5em;
+		letter-spacing: 0em;
+		top: calc(50% - 1em);
+	}
+
+	.icon-device[data-device="phone"] {
+		width: 120px;
+		height: 240px;
+	}
+
+	.icon-device[data-device="phone"] .dpi {
+		font-size: 1em;
+	}
+
+	.icon-device[data-device="tablet"] {
+		width: 200px;
+		height: 150px;
+	}
+
+	.icon-device[data-device="desktop"],
+	.icon-device[data-device="laptop"] {
+		width: 220px;
+		height: 150px;
+	}
+
+		.icon-device[data-device="desktop"]::before,
+		.icon-device[data-device="laptop"]::before {
+			width: 4px;
+			height: 4px;
+			margin-left: -2px;
+		}
+
+		.icon-device[data-device="desktop"]::after ,
+		.icon-device[data-device="laptop"]::after {
+			top: 100%;
+			background-color: #FFF;
+			border-radius: 0;
+			height: 0;
+			margin-top: 3px;
+		}
+
+		.icon-device[data-device="desktop"]::after {
+			border-bottom: 20px solid #555;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			width: 36px;
+			margin-left: -28px;
+		}
+
+		.icon-device[data-device="laptop"]::after {
+			border-bottom: 30px solid #555;
+			border-left: 50px solid rgba(0, 0, 0, 0);
+			border-right: 50px solid rgba(0, 0, 0, 0);
+			width: calc(100% + 6px);
+			margin-left: calc(-50% - 53px);
+		}
+
 fieldset {
 	display: inline-block;
 	vertical-align: top;
@@ -170,14 +233,9 @@ fieldset + fieldset {
 	
 	fieldset p {
 		font-size: 50%;
-		opacity: .5;
+		opacity: 1;
 		transition: .3s opacity;
 		font-weight: normal;
-	}
-	
-	fieldset:hover p,
-	fieldset input:focus ~ p {
-		opacity: 1;
 	}
 	
 #screens {

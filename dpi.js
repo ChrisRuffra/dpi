@@ -22,21 +22,12 @@ function update() {
 	var w = width.value,
 	    h = height.value;
 
-	result.textContent = calcDpi(w, h, physical.value, dimension.value);
+	result.textContent = calcDpi(w, h, physical.value, dimension.value) + " DPI";
 	
-	// Size the output to have the same aspect ratio as the screen
-	var ratio = w/h;
-	
-	output.style.minWidth = result.parentNode.offsetWidth;
-	
-	if (ratio > 1) {
-		output.style.width = '';
-	}
-	else {
-		output.style.width = '10em';
-	}
-	
-	output.style.height = output.offsetWidth / ratio + 'px';
+	if (physical.value > 17) output.dataset.device = "desktop";
+	else if (physical.value > 10) output.dataset.device = "laptop";
+	else if (physical.value >= 6) output.dataset.device = "tablet";
+	else output.dataset.device = "phone";
 }
 
 dimension.onchange = update;

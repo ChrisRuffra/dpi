@@ -23,12 +23,14 @@
 	×
 	<input id="height" inputmode="numeric" pattern="\d+" />
 	
-	<p id="resolutions">Common: 
+	<p id="resolutions">Common Resolutions: 
 		<a href="#" tabindex="-1">1920×1080</a>
 		<a href="#" tabindex="-1">1680×1050</a>
 		<a href="#" tabindex="-1">1440×900</a>
 		<a href="#" tabindex="-1">1366×768</a>
 		<a href="#" tabindex="-1">1280×800</a>
+		<a href="#" tabindex="-1">1280×768</a>
+		<a href="#" tabindex="-1">1280×720</a>
 		<a href="#" tabindex="-1">1386×768</a>
 		<a href="#" tabindex="-1">1024×768</a>
 		<a href="#" tabindex="-1">800×600</a>
@@ -44,6 +46,10 @@
 	<input id="physical" value="13.3" inputmode="numeric" pattern="\d*\.?\d+" />″
 	
 	<p id="diagonals">Common diagonals:
+		<a href="#" tabindex="-1">4.5″</a>
+		<a href="#" tabindex="-1">5″</a>
+		<a href="#" tabindex="-1">5.5″</a>
+		<a href="#" tabindex="-1">6″</a>
 		<a href="#" tabindex="-1">7″</a>
 		<a href="#" tabindex="-1">11.6″</a>
 		<a href="#" tabindex="-1">13.3″</a>
@@ -55,11 +61,8 @@
 	</p>
 </fieldset>
 
-<output>
-	<div>
-		<strong id="result"></strong>
-		pixels per inch
-	</div>
+<output class="icon-device">
+	<strong id="result" class="dpi">120 PPI</strong>
 </output>
 
 <section id="devices">
